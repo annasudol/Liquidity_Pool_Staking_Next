@@ -13,6 +13,7 @@ const ImageUpload: FC<ImageUploadProps> = ({
   isUploadingFile,
   imageSrc,
   setImgSrc,
+  accept,
   error = false,
 }) => {
   // const [imgSrc, setImgSrc] = useState<string | undefined>(imageSrc);
@@ -26,10 +27,11 @@ const ImageUpload: FC<ImageUploadProps> = ({
   //   setImgSrc(undefined);
   // };
 
-  const changeImage = async (e: { target: { files: any[]; }; }) => {
+  const changeImage = async (e: any) => {
     const reader = new FileReader();
     const file = e.target.files?.[0];
     file && reader.readAsDataURL(file);
+      console.log(file, 'file1');
 
     reader.onload = (readerEvent) => {
       const file = readerEvent.target?.result;
@@ -54,7 +56,7 @@ const ImageUpload: FC<ImageUploadProps> = ({
         <div className='mt-1 sm:col-span-2 sm:mt-0'>
           <div
             className={clsx(
-              'dark:bg-gray-600 flex justify-center rounded-md border border-dashed p-5 h-38',
+              'flex justify-center rounded-md border border-dashed p-5 h-38',
               {
                 'border-red-200': error,
                 'border-blue-gray-300': !error,
@@ -73,7 +75,7 @@ const ImageUpload: FC<ImageUploadProps> = ({
               ) : (
                 <>
                   <svg
-                    className='mx-auto h-12 w-12 dark:text-white text-blue-gray-400'
+                    className='mx-auto h-12 w-12 text-white'
                     stroke='currentColor'
                     fill='none'
                     viewBox='0 0 48 48'
@@ -86,31 +88,23 @@ const ImageUpload: FC<ImageUploadProps> = ({
                       strokeLinejoin='round'
                     />
                   </svg>
-                  <div className='flex justify-center items-center text-sm text-gray-600'>
+                  <div className='flex justify-center items-center text-sm text-white'>
                     <label
                       htmlFor={id}
-                      className='relative  dark:text-white cursor-pointer rounded-md dark:bg-gray-600  bg-white font-medium text-indigo-600 focus-within:outline-none hover:text-indigo-500'
+                      className='relative text-white cursor-pointer rounded-md font-medium'
                     >
-                      <p>{label}</p>
-                      <span className='text-label dark:text-white text-xs opacity-80 ml-1'>
-                        or drag and drop it here.
-                      </span>
+                      <span>Upload Image</span>
                       <input
                         id={id}
                         name={id}
                         type='file'
                         className='sr-only'
-                        // accept={accept}
+                        accept={accept}
                         multiple={false}
                         onChange={changeImage}
                       />
                     </label>
                   </div>
-                  {/* {description && (
-                    <p className='text-xs text-gray-500 dark:text-white'>
-                      {description}
-                    </p>
-                  )} */}
                 </>
               )}
             </div>

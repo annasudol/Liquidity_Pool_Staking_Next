@@ -10,4 +10,5 @@ export interface ImageUploadProps {
   isUploadingFile?: boolean;
   // onChange: (e: File | null) => void;
   error?: boolean;
+  accept?: string;
 }

@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
-import { Tabs } from '@/components/tabs';
+import { Trade } from '@/components/Trade';
 
 export default function HomePage() {
   return (
     <Layout>
-      <Tabs />
+      <Trade />
     </Layout>
   );
 }
