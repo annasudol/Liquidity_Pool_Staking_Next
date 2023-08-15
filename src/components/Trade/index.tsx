@@ -1,14 +1,15 @@
 import { Spinner, useToast } from '@chakra-ui/react';
-import {  useContract } from '@thirdweb-dev/react';
-import { useBalance } from "@thirdweb-dev/react";
+import { useContract, useContractWrite } from '@thirdweb-dev/react';
+import { useBalance } from '@thirdweb-dev/react';
 import { useEffect } from 'react';
 
-import { Facet } from '@/components/Facet';
+import CreateNFT from '@/components/createNFT';
 
-import { tokenERC20Address } from '@/utils/contracts';
-export const Redeem = () => {
-    const { data, isLoading } = useBalance(tokenERC20Address);
-
+import { NFTAuction, tokenERC20Address } from '@/utils/contracts';
+export const Trade = () => {
+  const { data, isLoading } = useBalance(tokenERC20Address);
+  const { contract } = useContract(NFTAuction);
+  const { mutateAsync: swap } = useContractWrite(contract, 'swap');
 
   const toast = useToast();
   const {
@@ -44,8 +45,10 @@ export const Redeem = () => {
   }
   return (
     <div className='p-6 flex flex-col text-white'>
-      <p>You have {data?.displayValue} {data?.symbol}</p>
-      <Facet />
+      <p>
+        You have {data?.displayValue} {data?.symbol}
+      </p>
+      <CreateNFT />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 
-import { Redeem } from '@/components/Redeem';
+import { Trade } from '@/components/Trade';
 
 export const Tabs = () => {
-  const categories = ['Swap', 'Redeem'];
+  const categories = ['Trade', 'Facet'];
   return (
     <div className='mt-16 w-full max-w-xl py-16 sm:px-0'>
       <Tab.Group>
@@ -29,7 +29,7 @@ export const Tabs = () => {
               key={idx}
               className='rounded-xl bg-blue-900 p-3 h-80 focus:outline-none'
             >
-              {idx === 1 ? <Redeem /> : <p>trade</p>}
+              {idx === 0 ? <Trade /> : <p>facet</p>}
             </Tab.Panel>
           ))}
         </Tab.Panels>

@@ -1,9 +1,5 @@
 import { Spinner, useToast } from '@chakra-ui/react';
-import {
-  useAddress,
-  useContract,
-  useContractRead
-} from '@thirdweb-dev/react';
+import { useAddress, useContract, useContractRead } from '@thirdweb-dev/react';
 import { useEffect } from 'react';
 
 // import { ITokenName } from '@/type/token.types';
@@ -22,17 +18,19 @@ export const Facet = () => {
 
   // const { contract_ERC20 } = useContractRead(contractToken, 'allowance', address);
   // const { mutateAsync, isLoading, error } = useContractWrite(contractToken, 'mint');
- const { data: totalSupply } = useContractRead(contractToken, "maxTotalSupply");
+  const { data: totalSupply } = useContractRead(
+    contractToken,
+    'maxTotalSupply'
+  );
   //  const { mutateAsync } = useContractWrite(
   //   contractToken,
   //   "mint",
   // );
-const handleMint = async()=>{
-  console.log(contractToken)
-  //return contractToken?.erc20.mint(200)
-  // contractToken?.mint(200).then(res=> console.log(res)).catch(err=> console.log(err))
-
-}
+  const handleMint = async () => {
+    console.log(contractToken);
+    //return contractToken?.erc20.mint(200)
+    // contractToken?.mint(200).then(res=> console.log(res)).catch(err=> console.log(err))
+  };
   useEffect(() => {
     ErrorToken &&
       toast({
@@ -60,9 +58,7 @@ const handleMint = async()=>{
   }
   return (
     <div className='p-6 flex flex-col'>
-    <button onClick={handleMint}> Send Transaction</button>
-
+      <button onClick={handleMint}> Send Transaction</button>
     </div>
   );
 };
-

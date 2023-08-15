@@ -3,8 +3,7 @@ import { useRouter } from 'next/router';
 
 const defaultMeta = {
   title: 'NFT auction',
-  siteName:
-    'NFT auction - Sepolia Ethereum',
+  siteName: 'NFT auction - Sepolia Ethereum',
   description: 'Trading NFTs in English auctions',
   url: '',
   type: 'website',

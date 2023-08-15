@@ -10,7 +10,6 @@ export const EtherScanMessage: React.FC<EtherScanMessageProps> = ({
   title,
   blockHash,
 }) => {
-
   return (
     <>
       <Text>{title}</Text>
