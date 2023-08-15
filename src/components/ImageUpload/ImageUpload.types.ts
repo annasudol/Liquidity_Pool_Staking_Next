@@ -1,4 +1,4 @@
-import { Dispatch } from "react";
+import { Dispatch } from 'react';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface ImageUploadProps {
@@ -6,7 +6,7 @@ export interface ImageUploadProps {
   label?: string;
   name?: string;
   imageSrc?: string;
-  setImgSrc: Dispatch<string | undefined>
+  setImgSrc: Dispatch<string | undefined>;
   isUploadingFile?: boolean;
   // onChange: (e: File | null) => void;
   error?: boolean;

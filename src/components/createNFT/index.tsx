@@ -55,7 +55,6 @@ const CreateNFT = () => {
     // const reader = new FileReader();
     // const file = e.target.files?.[0];
     // file && reader.readAsDataURL(file);
-
     // reader.onload = (readerEvent) => {
     //   const file = readerEvent.target?.result;
     //   file && setImgBase64(file);
@@ -63,7 +62,6 @@ const CreateNFT = () => {
     //   console.log(file, 'file');
     // };
   };
-
 
   const resetForm = () => {
     setFileUrl('');
@@ -79,11 +77,12 @@ const CreateNFT = () => {
         <form className='flex flex-col'>
           <div className='flex flex-row justify-between items-center'>
             <p className='font-semibold text-gray-400'>Add NFT</p>
-  
           </div>
-          <ImageUpload id="nft-img" setImgSrc={changeImage} imageSrc={fileUrl} />
-
-         
+          <ImageUpload
+            id='nft-img'
+            setImgSrc={changeImage}
+            imageSrc={fileUrl}
+          />
 
           <button
             type='submit'

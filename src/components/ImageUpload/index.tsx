@@ -4,39 +4,29 @@ import { Spinner } from '@chakra-ui/react';
 // import useDragFile from "@util/hooks/useDragFile";
 import clsx from 'clsx';
 import { FC } from 'react';
-import { useCallback } from 'react';
 
 import type { ImageUploadProps } from './ImageUpload.types';
 
 const ImageUpload: FC<ImageUploadProps> = ({
   id,
   label,
-  name = 'nft-photo',
-  required,
-  accept,
-  description,
-  onChange,
-  register,
   isUploadingFile,
   imageSrc,
   setImgSrc,
-  onlyShow = false,
   error = false,
-  title = 'Upload image',
 }) => {
   // const [imgSrc, setImgSrc] = useState<string | undefined>(imageSrc);
 
-  const onImageRemove = useCallback(() => {
-    onChange(null);
-  }, [onChange]);
+  // const onImageRemove = useCallback(() => {
+  //   // onChange(null);
+  // }, []);
 
-  const onImgRemove = () => {
-    onImageRemove();
-    setImgSrc(undefined);
-  };
+  // const onImgRemove = () => {
+  //   onImageRemove();
+  //   setImgSrc(undefined);
+  // };
 
-
-  const changeImage = async (e) => {
+  const changeImage = async (e: { target: { files: any[]; }; }) => {
     const reader = new FileReader();
     const file = e.target.files?.[0];
     file && reader.readAsDataURL(file);
@@ -46,12 +36,9 @@ const ImageUpload: FC<ImageUploadProps> = ({
       // file && setImgBase64(file);
       file && setImgSrc(file as string);
       console.log(file, 'file');
-    // };
+      // };
+    };
   };
-}
-
-
-  
 
   // useEffect(() => {
   //   setImgSrc(imageSrc);
@@ -62,11 +49,10 @@ const ImageUpload: FC<ImageUploadProps> = ({
       {imageSrc ? (
         <div className='h-38 overflow-hidden rounded-md group relative z-auto '>
           <img className='m-w-full w-full object-cover' src={imageSrc} alt='' />
-  
         </div>
       ) : (
         <div className='mt-1 sm:col-span-2 sm:mt-0'>
-        <div
+          <div
             className={clsx(
               'dark:bg-gray-600 flex justify-center rounded-md border border-dashed p-5 h-38',
               {
@@ -105,33 +91,30 @@ const ImageUpload: FC<ImageUploadProps> = ({
                       htmlFor={id}
                       className='relative  dark:text-white cursor-pointer rounded-md dark:bg-gray-600  bg-white font-medium text-indigo-600 focus-within:outline-none hover:text-indigo-500'
                     >
-                      <p>{title}</p>
+                      <p>{label}</p>
                       <span className='text-label dark:text-white text-xs opacity-80 ml-1'>
                         or drag and drop it here.
                       </span>
                       <input
-                        {...(register
-                          ? { ...register(name, { required }) }
-                          : null)}
                         id={id}
                         name={id}
                         type='file'
                         className='sr-only'
-                        accept={accept}
+                        // accept={accept}
                         multiple={false}
                         onChange={changeImage}
                       />
                     </label>
                   </div>
-                  {description && (
+                  {/* {description && (
                     <p className='text-xs text-gray-500 dark:text-white'>
                       {description}
                     </p>
-                  )}
+                  )} */}
                 </>
               )}
             </div>
-          </div> 
+          </div>
         </div>
       )}
     </div>
