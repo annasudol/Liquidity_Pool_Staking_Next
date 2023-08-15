@@ -82,6 +82,8 @@ const CreateNFT = () => {
             id='nft-img'
             setImgSrc={changeImage}
             imageSrc={fileUrl}
+                        accept="image/png, image/gif, image/jpeg, .svg, image/png, image/webp, video/webm, video/mp4"
+
           />
 
           <button
