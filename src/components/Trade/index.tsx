@@ -3,8 +3,6 @@ import { useContract, useContractWrite } from '@thirdweb-dev/react';
 import { useBalance } from '@thirdweb-dev/react';
 import { useEffect } from 'react';
 
-import CreateNFT from '@/components/createNFT';
-
 import { NFTAuction, tokenERC20Address } from '@/utils/contracts';
 export const Trade = () => {
   const { data, isLoading } = useBalance(tokenERC20Address);
@@ -48,7 +46,7 @@ export const Trade = () => {
       <p>
         You have {data?.displayValue} {data?.symbol}
       </p>
-      <CreateNFT />
+
     </div>
   );
 };

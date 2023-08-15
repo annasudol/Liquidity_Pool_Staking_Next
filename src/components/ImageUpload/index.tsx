@@ -9,7 +9,6 @@ import type { ImageUploadProps } from './ImageUpload.types';
 
 const ImageUpload: FC<ImageUploadProps> = ({
   id,
-  label,
   isUploadingFile,
   imageSrc,
   setImgSrc,
@@ -31,7 +30,7 @@ const ImageUpload: FC<ImageUploadProps> = ({
     const reader = new FileReader();
     const file = e.target.files?.[0];
     file && reader.readAsDataURL(file);
-      console.log(file, 'file1');
+    console.log(file, 'file1');
 
     reader.onload = (readerEvent) => {
       const file = readerEvent.target?.result;
