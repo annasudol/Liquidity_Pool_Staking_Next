@@ -5,7 +5,7 @@ import Layout from '@/components/layout/Layout';
 export default function HomePage() {
   return (
     <Layout>
-      <p>market</p>
+      <p>Stake Q liqidity market</p>
     </Layout>
   );
 }

@@ -2,9 +2,9 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const defaultMeta = {
-  title: 'NFT auction',
-  siteName: 'NFT auction - Sepolia Ethereum',
-  description: 'Trading NFTs in English auctions',
+  title: 'Liquidity Pool Staking',
+  siteName: 'Liquidity pool on UniswapV2 WETH-ERC',
+  description: 'Liquidity pool on UniswapV2 WETH-ERC',
   url: '',
   type: 'website',
   robots: 'follow, index',

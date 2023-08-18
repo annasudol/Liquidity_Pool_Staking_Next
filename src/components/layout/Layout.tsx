@@ -1,7 +1,6 @@
 import { ConnectWallet } from '@thirdweb-dev/react';
 import * as React from 'react';
 
-import Header from '@/components/Header';
 import Seo from '@/components/Seo';
 
 import { AppConfig } from '@/utils/AppConfig';
@@ -9,7 +8,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className='w-screen h-screen overflow-hidden grad'>
       <Seo />
-      <Header />
       <main>
         <section className='max-w-lg mx-auto p-4 z-10 relative'>
           <ConnectWallet />
